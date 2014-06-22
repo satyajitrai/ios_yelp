@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface YelpTableViewCell : UITableViewCell
-- (void)setBusiness: (NSDictionary*) business;
+- (void)setBusiness: (NSDictionary*) business withRank:(int)rank;
 @end

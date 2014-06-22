@@ -34,10 +34,10 @@
     // Configure the view for the selected state
 }
 
-- (void)setBusiness: (NSDictionary*) business {
-    self.titleLabel.text = business[@"name"];
-    NSURL * ratingUrl = [NSURL URLWithString: business[@"rating_img_url"]];
+- (void)setBusiness: (NSDictionary*) business withRank:(int)rank {
+    self.titleLabel.text = [NSString stringWithFormat:@"%d. %@", rank + 1, business[@"name"]];
     
+    NSURL * ratingUrl = [NSURL URLWithString: business[@"rating_img_url"]];
     [self.ratingImage setImageWithURLRequest:[NSURLRequest requestWithURL:ratingUrl] placeholderImage:[UIImage imageNamed:@"placeholder"] success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
         self.ratingImage.image = image;
     } failure:nil];

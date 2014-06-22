@@ -113,7 +113,7 @@ static NSString *const YelpTableCellClassName = @"YelpTableViewCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     YelpTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:YelpTableCellClassName forIndexPath:indexPath];
-    [cell setBusiness:self.results[indexPath.row]];
+    [cell setBusiness:self.results[indexPath.row] withRank:indexPath.row];
     return cell;
 }
 
