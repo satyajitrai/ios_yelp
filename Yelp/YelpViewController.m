@@ -46,7 +46,7 @@ static NSString *const YelpTableCellClassName = @"YelpTableViewCell";
     self.searchBar = [[UISearchBar alloc] init];
     self.searchBar.delegate = self;
     self.navigationItem.titleView = self.searchBar;
-    self.tblView.rowHeight = 100;
+    self.tblView.rowHeight = 120;
     
     [self getYelpResults:@""];
     
