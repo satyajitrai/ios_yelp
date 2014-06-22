@@ -16,7 +16,7 @@ NSString * const kYelpToken = @"uRcRswHFYa1VkDrGV6LAW2F8clGh5JHV";
 NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 
 @interface YelpViewController ()
-
+- (IBAction)onTap:(id)sender;
 @property (strong, nonatomic) UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UITableView *tblView;
 @property (nonatomic, strong) YelpClient *client;
@@ -87,6 +87,13 @@ static NSString *const YelpTableCellClassName = @"YelpTableViewCell";
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     [self getYelpResults: searchText];
     [self.tblView reloadData];
+    
+    if (searchText.length == 0) {
+        NSLog(@"cleared the search term");
+        [searchBar performSelector: @selector(resignFirstResponder)
+                        withObject: nil
+                        afterDelay: 0.05];
+    }
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
@@ -117,4 +124,8 @@ static NSString *const YelpTableCellClassName = @"YelpTableViewCell";
     return cell;
 }
 
+- (IBAction)onTap:(id)sender {
+    [self.view endEditing:YES];
+    [self.searchBar resignFirstResponder];
+}
 @end

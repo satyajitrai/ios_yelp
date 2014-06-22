@@ -22,6 +22,7 @@
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="gkT-Au-JeW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="2f3-Io-hzp"/>
                 <constraint firstItem="gkT-Au-JeW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="GMf-ji-gBs"/>
@@ -30,6 +31,16 @@
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="oXr-rE-KGp" appends="YES" id="JD7-9R-XyJ"/>
+                <outletCollection property="gestureRecognizers" destination="oXr-rE-KGp" appends="YES" id="PX3-Qj-bTT"/>
+            </connections>
         </view>
+        <tapGestureRecognizer id="oXr-rE-KGp">
+            <connections>
+                <action selector="onTap:" destination="-1" id="3DA-cg-drg"/>
+                <outlet property="delegate" destination="gkT-Au-JeW" id="SKN-Pd-CY2"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>
