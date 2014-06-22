@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "MainViewController.h"
 #import "YelpViewController.h"
 
 @implementation AppDelegate
