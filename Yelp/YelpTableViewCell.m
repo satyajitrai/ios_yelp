@@ -45,7 +45,7 @@
     self.reviewsLabel.text = [NSString stringWithFormat:@"%@ Reviews", business[@"review_count"]];
     
     NSArray *addresses = business[@"location"][@"address"];
-    self.addressLabel.text = (addresses.count > 0) ? addresses[0] : @"";
+    self.addressLabel.text = (addresses.count > 0) ? addresses[0] : @"0 Unknown St";
     NSURL *posterUrl = [NSURL URLWithString:business[@"image_url"]];
     [self.poster setImageWithURLRequest:[NSURLRequest requestWithURL:posterUrl] placeholderImage:[UIImage imageNamed:@"placeholder"] success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
         self.poster.image = image;
