@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
+#import "YelpViewController.h"
 
 @implementation AppDelegate
 
@@ -15,7 +16,10 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    self.window.rootViewController = [[MainViewController alloc] init];
+    YelpViewController *tvc = [[YelpViewController alloc] init];
+    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController: tvc];
+    
+    self.window.rootViewController = nc;
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
