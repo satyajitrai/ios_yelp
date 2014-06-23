@@ -4,9 +4,9 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YelpViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FilterViewController">
             <connections>
-                <outlet property="tblView" destination="gkT-Au-JeW" id="1bq-2r-YWi"/>
+                <outlet property="settingsTable" destination="Kcb-rm-bUF" id="NYq-TY-kTt"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,19 +15,18 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="gkT-Au-JeW">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="Kcb-rm-bUF">
+                    <rect key="frame" x="14" y="0.0" width="293" height="568"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <gestureRecognizers/>
             <constraints>
-                <constraint firstItem="gkT-Au-JeW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="2f3-Io-hzp"/>
-                <constraint firstItem="gkT-Au-JeW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="GMf-ji-gBs"/>
-                <constraint firstAttribute="bottom" secondItem="gkT-Au-JeW" secondAttribute="bottom" id="s02-MC-Zxc"/>
-                <constraint firstAttribute="trailing" secondItem="gkT-Au-JeW" secondAttribute="trailing" id="vam-Xd-XN3"/>
+                <constraint firstAttribute="trailing" secondItem="Kcb-rm-bUF" secondAttribute="trailing" constant="13" id="Wk6-82-fsz"/>
+                <constraint firstAttribute="bottom" secondItem="Kcb-rm-bUF" secondAttribute="bottom" id="hLA-IC-BNl"/>
+                <constraint firstItem="Kcb-rm-bUF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="14" id="kSU-Br-OsE"/>
+                <constraint firstItem="Kcb-rm-bUF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="uSg-e2-ZE2"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

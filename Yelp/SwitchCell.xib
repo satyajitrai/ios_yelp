@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="40" id="KGk-i7-Jjw" customClass="SwitchCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="39"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lVW-7r-ncr">
+                        <rect key="frame" x="15" y="4" width="242" height="31"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="zFO-iq-teI">
+                        <rect key="frame" x="258" y="4" width="51" height="31"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </switch>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="zFO-iq-teI" firstAttribute="leading" secondItem="lVW-7r-ncr" secondAttribute="trailing" constant="1" id="2rV-dt-trC"/>
+                    <constraint firstItem="lVW-7r-ncr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="BDR-9t-xIj"/>
+                    <constraint firstItem="zFO-iq-teI" firstAttribute="centerY" secondItem="lVW-7r-ncr" secondAttribute="centerY" id="HQw-AV-soi"/>
+                    <constraint firstAttribute="trailing" secondItem="zFO-iq-teI" secondAttribute="trailing" constant="13" id="IBX-9E-oy7"/>
+                    <constraint firstItem="lVW-7r-ncr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="NFV-RU-1ls"/>
+                    <constraint firstAttribute="bottom" secondItem="lVW-7r-ncr" secondAttribute="bottom" constant="4" id="tWB-Ya-DDk"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="state" destination="zFO-iq-teI" id="3XA-fm-0bB"/>
+                <outlet property="txtLabel" destination="lVW-7r-ncr" id="3bD-Ie-xQK"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

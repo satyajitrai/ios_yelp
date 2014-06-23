@@ -8,6 +8,7 @@
 
 #import "YelpViewController.h"
 #import "YelpTableViewCell.h"
+#import "FilterViewController.h"
 #import "YelpClient.h"
 
 NSString * const kYelpConsumerKey = @"vxKwwcR_NMQ7WaEiQBK_CA";
@@ -16,7 +17,6 @@ NSString * const kYelpToken = @"uRcRswHFYa1VkDrGV6LAW2F8clGh5JHV";
 NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 
 @interface YelpViewController ()
-- (IBAction)onTap:(id)sender;
 @property (strong, nonatomic) UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UITableView *tblView;
 @property (nonatomic, strong) YelpClient *client;
@@ -80,7 +80,7 @@ static NSString *const YelpTableCellClassName = @"YelpTableViewCell";
 
 #pragma mark - Filter View invocation
 - (void)onFilterButton {
-    NSLog(@"TODO: Implement Filter view");
+    [self.navigationController pushViewController:[[FilterViewController alloc]init] animated:YES];
 }
 
 #pragma mark - search bar
@@ -92,7 +92,7 @@ static NSString *const YelpTableCellClassName = @"YelpTableViewCell";
         NSLog(@"cleared the search term");
         [searchBar performSelector: @selector(resignFirstResponder)
                         withObject: nil
-                        afterDelay: 0.05];
+                        afterDelay: 0.1];
     }
 }
 
@@ -124,8 +124,9 @@ static NSString *const YelpTableCellClassName = @"YelpTableViewCell";
     return cell;
 }
 
-- (IBAction)onTap:(id)sender {
-    [self.view endEditing:YES];
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.tblView deselectRowAtIndexPath:indexPath animated:YES];
     [self.searchBar resignFirstResponder];
 }
+
 @end
