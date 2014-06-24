@@ -13,8 +13,6 @@
 		340ACFD4195731A000554F41 /* FilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 340ACFD2195731A000554F41 /* FilterViewController.xib */; };
 		340ACFD81957683F00554F41 /* PriceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 340ACFD61957683F00554F41 /* PriceCell.m */; };
 		340ACFD91957683F00554F41 /* PriceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 340ACFD71957683F00554F41 /* PriceCell.xib */; };
-		340ACFDD1957796E00554F41 /* SwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 340ACFDB1957796E00554F41 /* SwitchCell.m */; };
-		340ACFDE1957796E00554F41 /* SwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 340ACFDC1957796E00554F41 /* SwitchCell.xib */; };
 		34AAC7331954BE1500B73CBC /* YelpTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AAC7311954BE1500B73CBC /* YelpTableViewCell.m */; };
 		34AAC7341954BE1500B73CBC /* YelpTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34AAC7321954BE1500B73CBC /* YelpTableViewCell.xib */; };
 		420474F618DC299500E88E07 /* YelpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 420474F518DC299500E88E07 /* YelpClient.m */; };
@@ -53,9 +51,6 @@
 		340ACFD51957683F00554F41 /* PriceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriceCell.h; sourceTree = "<group>"; };
 		340ACFD61957683F00554F41 /* PriceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceCell.m; sourceTree = "<group>"; };
 		340ACFD71957683F00554F41 /* PriceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PriceCell.xib; sourceTree = "<group>"; };
-		340ACFDA1957796E00554F41 /* SwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchCell.h; sourceTree = "<group>"; };
-		340ACFDB1957796E00554F41 /* SwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchCell.m; sourceTree = "<group>"; };
-		340ACFDC1957796E00554F41 /* SwitchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwitchCell.xib; sourceTree = "<group>"; };
 		34AAC7301954BE1500B73CBC /* YelpTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YelpTableViewCell.h; sourceTree = "<group>"; };
 		34AAC7311954BE1500B73CBC /* YelpTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YelpTableViewCell.m; sourceTree = "<group>"; };
 		34AAC7321954BE1500B73CBC /* YelpTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YelpTableViewCell.xib; sourceTree = "<group>"; };
@@ -130,9 +125,6 @@
 				340ACFD51957683F00554F41 /* PriceCell.h */,
 				340ACFD61957683F00554F41 /* PriceCell.m */,
 				340ACFD71957683F00554F41 /* PriceCell.xib */,
-				340ACFDA1957796E00554F41 /* SwitchCell.h */,
-				340ACFDB1957796E00554F41 /* SwitchCell.m */,
-				340ACFDC1957796E00554F41 /* SwitchCell.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -289,7 +281,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				340ACFD4195731A000554F41 /* FilterViewController.xib in Resources */,
-				340ACFDE1957796E00554F41 /* SwitchCell.xib in Resources */,
 				42FD6C5518DC286B000BF2B9 /* InfoPlist.strings in Resources */,
 				34AAC7341954BE1500B73CBC /* YelpTableViewCell.xib in Resources */,
 				340ACFCF1955FAE700554F41 /* YelpViewController.xib in Resources */,
@@ -346,7 +337,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				340ACFDD1957796E00554F41 /* SwitchCell.m in Sources */,
 				42FD6C5B18DC286B000BF2B9 /* AppDelegate.m in Sources */,
 				42FD6C5718DC286B000BF2B9 /* main.m in Sources */,
 				340ACFCE1955FAE700554F41 /* YelpViewController.m in Sources */,

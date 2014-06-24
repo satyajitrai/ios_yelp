@@ -7,7 +7,6 @@
 //
 
 #import "FilterViewController.h"
-#import "SwitchCell.h"
 #import "PriceCell.h"
 
 @interface FilterViewController ()
@@ -21,17 +20,17 @@
 @property (nonatomic, assign) int selectedSortIndex;
 @property (strong, nonatomic) NSArray *sortNames;
 @property (strong, nonatomic) NSArray *sectionTitles;
-@property (strong, nonatomic) NSArray *featureNames;
-@property (strong, nonatomic) NSMutableDictionary* featureStates;
-@property (nonatomic) BOOL *isDistanceExpanded;
-@property (nonatomic) BOOL *isSortExpanded;
+@property (strong, nonatomic) NSArray *categoryNames;
+@property (strong, nonatomic) NSMutableDictionary* categoryStates;
+@property (nonatomic, assign) BOOL categoryCollapsed;
 @end
 
 @implementation FilterViewController
 
 static NSString* DefaultCell = @"UITableViewCell";
+static NSString* DistanceCell = @"DistanceCell";
+static NSString* SortCell = @"SortCell";
 static NSString* PriceCellName = @"PriceCell";
-static NSString* SwitchCellName = @"SwitchCell";
 
 static int sectionSizes[] = {1, 4, 1, 1, 4};
 const int PriceSection = 0;
@@ -59,7 +58,8 @@ const int CategorySection = 4;
             [self.popularMap setObject:@NO forKey: name];
         }
         
-        self.featureNames = @[@"Take-Out", @"Good for Groups", @"Take Reservations", @"See All"];
+        self.categoryNames = @[@"Take-Out", @"Good for Groups", @"Take Reservations", @"General 1", @"General 2"];
+        self.categoryCollapsed = TRUE;
     }
     return self;
 }
@@ -73,9 +73,10 @@ const int CategorySection = 4;
     self.settingsTable.dataSource = self;
     self.view.backgroundColor = self.settingsTable.backgroundColor;
     
-    [self.settingsTable registerClass:[UITableViewCell  class]  forCellReuseIdentifier:DefaultCell];
+    [self.settingsTable registerClass:[UITableViewCell class]  forCellReuseIdentifier:DefaultCell];
+    [self.settingsTable registerClass:[UITableViewCell class]  forCellReuseIdentifier:DistanceCell];
+    [self.settingsTable registerClass:[UITableViewCell class]  forCellReuseIdentifier:SortCell];
     [self.settingsTable registerNib:[UINib nibWithNibName:PriceCellName bundle:nil] forCellReuseIdentifier: PriceCellName];
-    [self.settingsTable registerNib:[UINib nibWithNibName:SwitchCellName bundle:nil] forCellReuseIdentifier: SwitchCellName];
     [self.settingsTable setEditing:YES animated:YES];
 }
 
@@ -113,11 +114,17 @@ const int CategorySection = 4;
             
         case SortSection:
             [self didSelectSortForTable:tableView atIndexPath:indexPath];
-            
+            break;
+        case CategorySection:
+            if (self.categoryCollapsed == YES && indexPath.row == 3) {
+                self.categoryCollapsed = false;
+                sectionSizes[CategorySection] = self.categoryNames.count;
+                [tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationAutomatic];
+            }
+            break;
         default:
             break;
     }
-
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -129,45 +136,56 @@ const int CategorySection = 4;
             break;
             
         case PopularSection:
-            cell = [self.settingsTable dequeueReusableCellWithIdentifier:SwitchCellName forIndexPath:indexPath];
-            ((SwitchCell *)cell).txtLabel.text = self.popularNames[indexPath.row];
+            cell = [self.settingsTable dequeueReusableCellWithIdentifier:DefaultCell forIndexPath:indexPath];
+            cell.textLabel.font = [UIFont boldSystemFontOfSize: 15];
+            cell.textLabel.text = self.popularNames[indexPath.row];
+            cell.accessoryView = [[UISwitch alloc] initWithFrame:CGRectZero];
             break;
             
         case DistanceSection:
-            cell = [self.settingsTable dequeueReusableCellWithIdentifier:DefaultCell forIndexPath:indexPath];
+            cell = [self.settingsTable dequeueReusableCellWithIdentifier:DistanceCell forIndexPath:indexPath];
             cell.textLabel.font = [UIFont boldSystemFontOfSize: 15];
             if (isCollapsed(DistanceSection)) {
                 cell.textLabel.text = self.distanceNames[self.selectedDistanceIndex];
+                cell.accessoryType = UITableViewCellAccessoryNone;
             } else {
                 cell.textLabel.text = self.distanceNames[indexPath.row];
-                cell.textLabel.textColor = [UIColor blackColor];
                 if (self.selectedDistanceIndex == indexPath.row) {
-                    NSLog(@"Setting checkmark on row %d", self.selectedDistanceIndex);
-                    cell.textLabel.textColor = [UIColor blueColor];
-                    cell.editingAccessoryType = UITableViewCellAccessoryCheckmark;
+                    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+                }
+                else {
+                    cell.accessoryType = UITableViewCellAccessoryNone;
                 }
             }
             break;
             
         case SortSection:
-            cell = [self.settingsTable dequeueReusableCellWithIdentifier:DefaultCell forIndexPath:indexPath];
+            cell = [self.settingsTable dequeueReusableCellWithIdentifier:SortCell forIndexPath:indexPath];
             cell.textLabel.font = [UIFont boldSystemFontOfSize: 15];
             if (isCollapsed(SortSection)) {
                 cell.textLabel.text = self.sortNames[self.selectedSortIndex];
+                cell.accessoryType = UITableViewCellAccessoryNone;
             } else {
                 cell.textLabel.text = self.sortNames[indexPath.row];
-                cell.textLabel.textColor = [UIColor blackColor];
                 if (self.selectedSortIndex == indexPath.row) {
-                    NSLog(@"Setting checkmark on row %d", self.selectedSortIndex);
-                    cell.textLabel.textColor = [UIColor blueColor];
-                    cell.editingAccessoryType = UITableViewCellAccessoryCheckmark;
+                    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+                }
+                else {
+                    cell.accessoryType = UITableViewCellAccessoryNone;
                 }
             }
             break;
             
         case CategorySection:
-            cell = [self.settingsTable dequeueReusableCellWithIdentifier:SwitchCellName forIndexPath:indexPath];
-            ((SwitchCell *)cell).txtLabel.text = self.featureNames[indexPath.row];
+            cell = [self.settingsTable dequeueReusableCellWithIdentifier:DefaultCell forIndexPath:indexPath];
+            cell.textLabel.font = [UIFont boldSystemFontOfSize:15];
+            if (self.categoryCollapsed && indexPath.row == 3) {
+                cell.textLabel.text = @"See All";
+            }
+            else {
+                cell.textLabel.text = self.categoryNames[indexPath.row];
+                cell.accessoryView = [[UISwitch alloc] initWithFrame:CGRectZero];
+            }
             break;
             
         default:
@@ -193,9 +211,6 @@ const int CategorySection = 4;
 BOOL isCollapsed(int section)
 {
     if ((section == DistanceSection || section == SortSection) && (sectionSizes[section] == 1)) {
-        return YES;
-    }
-    else if (section == CategorySection && sectionSizes[section] == 4){
         return YES;
     }
     else {
