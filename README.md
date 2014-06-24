@@ -14,3 +14,6 @@
 ### Incomplete Stories
   * Radius filter expands as in the real Yelp app but could not get check-mark working.
   * Could not implement the expansion of the Categories.
+
+### Demo
+![demo](demo.gif "Yelp Assignment Demo")
